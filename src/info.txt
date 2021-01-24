@@ -1,0 +1,19 @@
+La aplicacion consta de tres partes:
+
+1-Esta es la parte cliente (front-end) desarrollado con angular principalmente y nos permite crear,actualizar,consultar(filtros incluidos), y eliminar jugadores.
+
+2-Otra parte servidor (back-end) desarrollada con node (express) principalmente, es la que recibe las consultas del front-end y se comunica con la base de datos.
+
+3-La tercera parte es la base de datos, que es necesario instalar y crear tanto la base de datos como la tabla sobre la que se van a crear las consultas.
+
+Las 3 partes son imprescindibles para el funcionamiento.
+
+Recursos web:
+Fazt
+Google
+Domini Code
+CarlosAzaustre
+
+Libros:
+Entendiendo Angular (Jorge Cano)
+Introducción a Node (Gustavo Morales)

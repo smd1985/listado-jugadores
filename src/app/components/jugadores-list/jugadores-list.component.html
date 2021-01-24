@@ -1,0 +1,108 @@
+<!-- filtros -->
+<div>
+  <h1>FILTROS</h1>
+</div>
+
+<!-- <div class="input-group">
+  
+  <p class="mr-4">
+    <label>Posicion: </label>
+    <select name="posicion" [(ngModel)]="posicionSeleccionado" (change)='posicionChange()'>
+      <option value="0" > Selecciona una opcion</option>
+      <option [ngValue]="posicion.pos" *ngFor="let posicion of posiciones">{{posicion.pos}}</option>
+    </select>
+  </p>
+
+  <p class="mr-4">
+    <label>Equipo: </label>
+    <select name="equipo" [(ngModel)]="equipoSeleccionado" (change)='equipoChange()'>
+      <option value="0" > Selecciona una opcion</option>
+      <option [ngValue]="equipo.equipo" *ngFor="let equipo of equipos">{{equipo.equipo}}</option>
+    </select>
+  </p>
+
+  <p class="mr-4">
+    <label>Nacionalidad: </label>
+    <select name="nacionalidad" [(ngModel)]="nacionalidadSeleccionada" (change)='nacionalidadChange()'>
+      <option value="0" > Selecciona una opcion</option>
+      <option [ngValue]="nacionalidad.nac" *ngFor="let nacionalidad of nacionalidades">{{nacionalidad.nac}}</option>
+    </select>
+  </p>
+
+  <div class="row align-items-end">
+    <p >
+      <a class="btn btn-info btn-block mt-6" (click)="filtros()">
+        Buscar
+      </a>
+    </p>
+  </div>
+
+</div> -->
+
+<div class="container mb-4">
+  <div class="row input-group col-md-16">
+    
+      <div class="col-3 mt-3">
+        <label>Posicion: </label>
+        <select name="posicion" [(ngModel)]="posicionSeleccionado" (change)='posicionChange()'>
+          <option value="0" > Selecciona una opcion</option>
+          <option [ngValue]="posicion.pos" *ngFor="let posicion of posiciones">{{posicion.pos}}</option>
+        </select>
+      </div>
+    
+      <div class="col-3 mt-3">
+        <label>Equipo: </label>
+        <select name="equipo" [(ngModel)]="equipoSeleccionado" (change)='equipoChange()'>
+          <option value="0" > Selecciona una opcion</option>
+          <option [ngValue]="equipo.equipo" *ngFor="let equipo of equipos">{{equipo.equipo}}</option>
+        </select>
+      </div>
+    
+      <div class="col-3 mt-3">
+        <label>Nacional: </label>
+        <select name="nacionalidad" [(ngModel)]="nacionalidadSeleccionada" (change)='nacionalidadChange()'>
+          <option value="0" > Selecciona una opcion</option>
+          <option [ngValue]="nacionalidad.nac" *ngFor="let nacionalidad of nacionalidades">{{nacionalidad.nac}}</option>
+        </select>
+      </div>
+     
+      <div class="col-3 mt-1">
+        
+          <a class="btn btn-info btn-block ml-auto" (click)="filtros()">
+            Buscar
+          </a>
+        
+      </div> 
+    </div>
+</div>
+
+
+<!-- visualizacion -->
+   
+<div *ngIf="jugadores.length > 0 then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div class="col-md-4" *ngFor="let jugador of jugadores">
+    <div class="card text-center">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        {{jugador.nombre}}
+        <button class="btn btn-danger" (click)="borrarJugador(jugador.id)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      
+      <div class="card-body">
+        <p>{{jugador.equipo}}</p>
+        <p>{{jugador.nacionalidad}}</p>
+        <p>{{jugador.posicion}}</p>
+        <p>Añadido {{jugador.fecha_creacion | date: 'yyyy-MM-dd HH:mm'}}</p>
+        <a [routerLink]="['/jugador/edit', jugador.id]" class="btn btn-info btn-block">
+          Editar Jugador
+        </a>
+      </div>
+    </div>
+  </div> 
+</ng-template>
+<ng-template #elseBlock>
+  No hay resultados
+</ng-template>
+
